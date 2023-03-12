@@ -1,0 +1,114 @@
+int led1 = A5; 
+int led2 = A4;
+int pushButton = A0;
+int buttonValue;
+
+
+void space() {
+    // Creating a function to create the space between the characters in a word
+ 
+      digitalWrite(led1, LOW);
+    delay(1000); 
+
+    
+}
+
+void dash() {
+    // Creating a function to create the dash 
+    digitalWrite(led1, HIGH);
+    delay(3000);
+}
+
+void dot() {
+    // Creating the function for a dot
+    digitalWrite(led1, HIGH);
+    delay(1000);
+}
+
+void clear() {
+    //This function provides the 3s delay before writing a character
+    digitalWrite(led1, LOW);
+    delay(3000);
+}
+void A() {
+    // di-dah
+    dot();
+    space();
+    dash();
+    clear();
+}
+
+
+void E() {
+    // dah-di-di-dit
+    dash();
+    space();
+    dot();
+    space();
+    dot();
+    space();
+    dot();
+    clear();
+}
+
+void J() {
+    // di-dah-dah-dah
+    // A include di-dah
+    A(); 
+    space();
+    dash();
+    space();
+    dash();
+    clear();
+   
+}
+
+void N() {
+    //dah - dit
+    dash();
+    space();
+    dot();
+    clear();
+}
+
+void start() {
+    //This function is installed to turn on a GREEN led when starting the loop
+    digitalWrite(led2, HIGH);
+    delay(1000);
+    digitalWrite(led2, LOW);
+    delay(1000);
+    space();
+    
+}
+
+void setup() {
+
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(pushButton, INPUT);
+
+}
+
+void read() {
+     
+    start();
+        
+    J();
+    E();
+    A();
+    N();
+}
+
+void loop() {
+    buttonValue = digitalRead(pushButton);
+    
+    if(buttonValue != 0)
+    {
+      read(); 
+        
+    }
+    else
+    {
+       digitalWrite(led1, LOW);
+    }
+}
