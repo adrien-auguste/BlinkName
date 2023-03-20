@@ -83,7 +83,7 @@ void setup() {
   pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
   pinMode(D2, INPUT_PULLUP);
-  attachInterrupt(D2, blink, CHANGE);
+  attachInterrupt(D2, blink, CHANGE); 
 
 }
 
