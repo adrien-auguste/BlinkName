@@ -36,27 +36,26 @@ void A() {
     dot();
     space();
     dash();
-    clear();
+   
 }
 
 
 void E() {
-    // dit
+    // dah-di-di-dit
    
     dot();
-    clear();
+   
 }
 
 void J() {
     // di-dah-dah-dah
     // A include di-dah
-    
     A(); 
     space();
     dash();
     space();
     dash();
-    clear();
+   
    
 }
 
@@ -65,7 +64,7 @@ void N() {
     dash();
     space();
     dot();
-    clear();
+ 
 }
 
 void start() {
@@ -83,18 +82,21 @@ void setup() {
   pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
   pinMode(D2, INPUT_PULLUP);
-  attachInterrupt(D2, blink, CHANGE); 
+  attachInterrupt(D2, blink, RISING);
 
 }
 
 void read() {
-    state = ! state; 
+    
     start();//Start us used to know whether the read function is starting from the strat
-        
     J();
+    clear();
     E();
+    clear();
     A();
+    clear();
     N();
+    space();
 }
 
 void loop() {
@@ -103,9 +105,12 @@ void loop() {
     {
         read();
     }
+    //Change the bool value of state back to false
+    state =FALSE; 
 
 }
 
 void blink(){
-    state = ! state;
+    
+    state = TRUE;
 }
